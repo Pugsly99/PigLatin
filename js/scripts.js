@@ -1,13 +1,24 @@
 //Business Logic
 
 function vowelCheck(word) {
+  const pigArray = [];
   const vowels = ["a", "i", "e", "o", "u"];
-  const wordArray = word.split("");
-  if (vowels.includes(wordArray[0])) {
-    return("it starts with a vowel")
-  } else {
-    return("consonant") 
+  const wordArray = word.split(" ");
+  for (let i = 0; i <wordArray.length; i++) {
+    let letterArray = wordArray[i].split("");
+    if (vowels.includes(letterArray[0])) {
+      let vowelFirst = letterArray.join("");
+      pigArray.push(vowelFirst + "way");
+    } else {
+      let constFirst = letterArray.shift();
+      let newWord = letterArray.concat(constFirst);
+      
+      let joinConst = (newWord.join("")); 
+      pigArray.push(joinConst + "ay");
+    }
+    
   }
+  return pigArray;
 }
   
   
